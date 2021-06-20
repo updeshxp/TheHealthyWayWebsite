@@ -197,7 +197,7 @@ $('#appointmentInfo').on('submit', function (e) {
         if (textstatus == "timeout") {
           alert("Request Timeout! Please try again later!")
         } else {
-          alert("Oops! Looks like some issue from our end! Please contact us via my email/phone. Thank You!")
+          alert("Oops! Looks like some issue from our end! Please contact us via my email/phone. "+textstatus+"  Thank You!")
         }
       }
     });
