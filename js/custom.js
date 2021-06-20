@@ -180,6 +180,7 @@ $('#appointmentInfo').on('submit', function (e) {
 		alert("spam detected");
 		return false;
 	}
+  $('.preloader').show();
 	var url = "https://qm6c24h9o7.execute-api.ap-south-1.amazonaws.com/healthyway/sendData";
     $.ajax({
       url: url,
@@ -187,13 +188,14 @@ $('#appointmentInfo').on('submit', function (e) {
       data: $('#appointmentInfo').serialize(),
       timeout: 8000,
       success: function (response) {
-		  console.log(response);
-		if(response.result=="success"){
 			$('#appointmentInfo').trigger("reset");
-      alert("Your entry has been recorded!")
+      $('.preloader').fadeOut(0);
+      alert(response.message)
 		}
       },
       error: function (x, textstatus, m) {
+        $('#appointmentInfo').trigger("reset");
+        $('.preloader').fadeOut(0);
         if (textstatus == "timeout") {
           alert("Request Timeout! Please try again later!")
         } else {
