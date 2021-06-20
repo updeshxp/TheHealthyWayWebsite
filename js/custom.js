@@ -191,7 +191,6 @@ $('#appointmentInfo').on('submit', function (e) {
 			$('#appointmentInfo').trigger("reset");
       $('.preloader').fadeOut(0);
       alert(response.message)
-		}
       },
       error: function (x, textstatus, m) {
         $('#appointmentInfo').trigger("reset");
