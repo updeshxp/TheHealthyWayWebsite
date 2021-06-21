@@ -62,7 +62,7 @@ function shortenText(text,startingPoint ,maxLength) {
  }
 
 function getImage(str){
-  const regex = /<img.*?src="(.*?)"[^>]*>/m;
+  const regex = /<img.*src="(.*?)"[^>]*>/m;
   let m;
   var imgsrc = 'images/news-image'+(Math.floor(Math.random() * 3)+1)+'.jpg';
 
@@ -91,10 +91,19 @@ var curr_year = d.getFullYear();
 return m_names[curr_month] +" " + curr_date + ", " + curr_year;
 }
 
-function setNews(jsblog){
+
+function setNews(jsblog,sectionTag){
   let items = jsblog.items;
   let output = '';
   delay = 0.4;
+  read_more_text = "Read More";
+  wow = "wow fadeInUp";
+  if(sectionTag =="hindiBlogPosts"){
+    read_more_text="अधिक पढ़ें";
+    wow = "";
+    delay = 0;
+  }
+  
   items.forEach(function(post) {
     //console.log('Delay is '+delay);
     let date = new Date(post.published);
@@ -102,7 +111,7 @@ function setNews(jsblog){
     summary=shortenText(post.content,0,300);
     output += `<div class="col-md-4 col-sm-6">
                 <!-- NEWS THUMB -->
-                  <div class="news-thumb wow fadeInUp" data-wow-delay="${delay}s">
+                  <div class="news-thumb ${wow}" data-wow-delay="${delay}s">
                     <a href="${post.url}">
                       <img src="${imgsrc}" style="width: 360px;height: 240px;object-fit: cover;" class="img-responsive" alt="${post.title}">
                     </a>
@@ -110,7 +119,7 @@ function setNews(jsblog){
                       <span>${formDate(date)}</span>
                       <h3><a href="${post.url}">${post.title}</a></h3>
                       <p>${summary}</p>
-                      <div style="float:right;"><a class="more-btn btn btn-default smoothScroll" href="${post.url}">Read More</a></div>
+                      <div style="float:right;"><a class="more-btn btn btn-default smoothScroll" href="${post.url}">${read_more_text}</a></div>
                       <div class="author">
                         <img src="${post.author.image.url}" class="img-responsive" alt="${post.author.displayName}">
                           <div class="author-info">
@@ -124,7 +133,7 @@ function setNews(jsblog){
               </div>`;
     delay+=0.20;
   });
-  document.getElementById('blogPosts').innerHTML = output;
+  document.getElementById(sectionTag).innerHTML = output;
 }
 
 function setFooterNews(jsblog){
@@ -148,8 +157,14 @@ function setFooterNews(jsblog){
       document.getElementById('footer-art').innerHTML = fnews;
 }
 
-function fetchArticles(){
-  url = "https://www.googleapis.com/blogger/v3/blogs/7084568612788196862/posts"
+function getArticles(){
+  engURL = "https://www.googleapis.com/blogger/v3/blogs/7084568612788196862/posts";
+  hindiURL = "https://www.googleapis.com/blogger/v3/blogs/4962666554143216481/posts";
+  fetchArticles(engURL,'engBlogPosts');
+  fetchArticles(hindiURL,'hindiBlogPosts');
+}
+
+function fetchArticles(url,sectionTag){
   key= atob("QUl6YVN5RGJ5eUk4Q2FxeV9oNDFGMVRFNEZhVGZreTVTOGtSNWhz");
   maxResults=3;
   $.ajax({
@@ -161,11 +176,11 @@ function fetchArticles(){
     },
     success: function (response) {
       // console.log(response);
-      setNews(response);
+      setNews(response,sectionTag);
       // setFooterNews(response);
     },
     error: function (xhr) {
-      $("#blogPosts").html("<div>Request Failed, Please Try Again</div>");
+      $("#"+sectionTag).html("<div>Request Failed, Please Try Again</div>");
       //Do Something to handle error
     }
   });

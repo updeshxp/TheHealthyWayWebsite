@@ -266,44 +266,78 @@
      <section id="news" data-stellar-background-ratio="2.5">
           <div class="container">
                <div class="row">
-
-                    <div class="col-md-12 col-sm-12">
-                         <!-- SECTION TITLE -->
-                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Blog</h2>
-                         </div>
+                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                         <h2>Blog</h2>
+                         <ul class="nav nav-pills" style="display:inline-block;text-align:center;">
+                              <li class="active"><a data-toggle="pill" href="#engblog">English</a></li>
+                              <li><a data-toggle="pill" href="#hindiblog">Hindi Blog</a></li>
+                        </ul>
                     </div>
-
-                    <div id="blogPosts">
-                         <div class="col-md-4 col-sm-6">
-                              <!-- NEWS THUMB -->
-                              <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
-                                   <a href="news-detail.html">
-                                        <img src="images/news-image2.jpg"
-                                             style="width: -webkit-fill-available;object-fit: contain;"
-                                             class="img-responsive" alt="loading">
-                                   </a>
-                                   <div class="news-info">
-                                        <span>March 08, 2018</span>
-                                        <h3><a href="news-detail.html">Loading</a></h3>
-                                        <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>
-                                        <div class="author">
-                                             <img src="images/author-image.jpg" class="img-responsive" alt="">
-                                             <div class="author-info">
-                                                  <h5> </h5>
-                                                  <p> </p>
+                   
+                       <div class="tab-content">
+                         <div id="engblog" class="tab-pane fade in active">
+                              <div id="engBlogPosts">
+                                   <div class="col-md-4 col-sm-6">
+                                        <!-- NEWS THUMB -->
+                                        <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
+                                             <a href="news-detail.html">
+                                                  <img src="images/news-image2.jpg"
+                                                       style="width: -webkit-fill-available;object-fit: contain;"
+                                                       class="img-responsive" alt="loading">
+                                             </a>
+                                             <div class="news-info">
+                                                  <span>March 08, 2018</span>
+                                                  <h3><a href="news-detail.html">Loading</a></h3>
+                                                  <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>
+                                                  <div class="author">
+                                                       <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                                       <div class="author-info">
+                                                            <h5> </h5>
+                                                            <p> </p>
+                                                       </div>
+                                                  </div>
                                              </div>
                                         </div>
                                    </div>
                               </div>
+                              <div class="col-md-12 wow fadeInUp" data-wow-delay="1s" style="text-align:start;margin-top:20px;">
+                                   <a class="section-btn btn btn-default smoothScroll" href="http://engblog.thehealthyway.co.in">See
+                                        More</a>
+                              </div>
                          </div>
-                    </div>
+                         <div id="hindiblog" class="tab-pane fade">
+                              <div id="hindiBlogPosts">
+                                   <div class="col-md-4 col-sm-6">
+                                        <!-- NEWS THUMB -->
+                                        <div class="news-thumb">
+                                             <a href="news-detail.html">
+                                                  <img src="images/news-image2.jpg"
+                                                       style="width: -webkit-fill-available;object-fit: contain;"
+                                                       class="img-responsive" alt="loading">
+                                             </a>
+                                             <div class="news-info">
+                                                  <span>March 08, 2018</span>
+                                                  <h3><a href="news-detail.html">Loading Hindi Blog</a></h3>
+                                                  <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>
+                                                  <div class="author">
+                                                       <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                                       <div class="author-info">
+                                                            <h5> </h5>
+                                                            <p> </p>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-12" style="text-align:start;margin-top:20px;">
+                                   <a class="section-btn btn btn-default smoothScroll" href="http://hindiblog.thehealthyway.co.in">और देखें</a>
+                              </div>
+                         </div>
+                       </div>
 
                </div>
-               <div class="col-md-12 wow fadeInUp" data-wow-delay="1s" style="text-align:start;margin-top:20px;">
-                    <a class="section-btn btn btn-default smoothScroll" href="http://engblog.thehealthyway.co.in">See
-                         More</a>
-               </div>
+               
           </div>
      </section>
 
@@ -489,7 +523,7 @@
      <script src="js/smoothscroll.js"></script>
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
-     <script>$(document).ready(function () { fetchArticles() });</script>
+     <script>$(document).ready(function () { getArticles() });</script>
 
 </body>
 
