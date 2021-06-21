@@ -181,7 +181,7 @@ $('#appointmentInfo').on('submit', function (e) {
 		return false;
 	}
   $('.preloader').show();
-	var url = "https://qm6c24h9o7.execute-api.ap-south-1.amazonaws.com/healthyway/sendData";
+	var url = "https://formdata.apzhub.in/thehealthyway/sendData";
     $.ajax({
       url: url,
       type: "post",
@@ -190,7 +190,7 @@ $('#appointmentInfo').on('submit', function (e) {
       success: function (response) {
 			$('#appointmentInfo').trigger("reset");
       $('.preloader').fadeOut(0);
-      alert(response.message)
+      alert(response.message);
       },
       error: function (x, textstatus, m) {
         $('#appointmentInfo').trigger("reset");
