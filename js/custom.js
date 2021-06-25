@@ -165,7 +165,7 @@ function getArticles(){
 }
 
 function fetchArticles(url,sectionTag){
-  key= atob("QUl6YVN5RGJ5eUk4Q2FxeV9oNDFGMVRFNEZhVGZreTVTOGtSNWhz");
+  key= atob("QUl6YVN5QkdXQ2trUDNVU0d5TnVNVXdHOXc1ODVSSF9BUW5IMHo4");
   maxResults=3;
   $.ajax({
     url: url,
