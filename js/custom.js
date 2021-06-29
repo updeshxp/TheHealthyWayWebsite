@@ -67,7 +67,7 @@ function getImage(str){
   var imgsrc = 'images/news-image'+(Math.floor(Math.random() * 3)+1)+'.jpg';
 
   var res = str.match(regex);
-  if(res[1]){
+  if(res){
     imgsrc = res[1];
   }
   // if ((m = regex.exec(str)) !== null) {
