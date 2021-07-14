@@ -50,8 +50,8 @@ http://www.tooplate.com/view/2098-health
   }
 
   h4 {
-    color: #454545;
-    font-size: 1.8em;
+    /*color: #454545;
+    font-size: 1.8em;*/
     padding-bottom: 2px;
   }
 
@@ -478,6 +478,10 @@ http://www.tooplate.com/view/2098-health
 
   .slider .item-third {
     background-image: url(../images/slider3.jpg);
+  }
+
+  .slider .item-news {
+    background: url(../images/leaf-unsplash.jpg);
   }
 
 
