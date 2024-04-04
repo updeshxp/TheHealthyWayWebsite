@@ -199,6 +199,7 @@ $('#appointmentInfo').on('submit', function (e) {
 	var url = "https://script.google.com/macros/s/AKfycbzGjaB96Tzh8J5GZvdswUFEUSa4Dg0wMtOMhY6bbd4/exec";
     $.ajax({
       url: url,
+      crossDomain: true,
       type: "post",
       data: $('#appointmentInfo').serialize(),
       timeout: 8000,
