@@ -196,7 +196,7 @@ $('#appointmentInfo').on('submit', function (e) {
 		return false;
 	}
   $('.preloader').show();
-	var url = "https://qm6c24h9o7.execute-api.ap-south-1.amazonaws.com/healthyway/sendData";
+	var url = "https://script.google.com/macros/s/AKfycbzGjaB96Tzh8J5GZvdswUFEUSa4Dg0wMtOMhY6bbd4/exec";
     $.ajax({
       url: url,
       type: "post",
